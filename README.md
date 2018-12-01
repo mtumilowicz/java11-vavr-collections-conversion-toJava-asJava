@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/java11-vavr-collections-conversion-toJava-asJava.svg?branch=master)](https://travis-ci.com/mtumilowicz/java11-vavr-collections-conversion-toJava-asJava)
+
 # java11-vavr-collections-conversion-toJava-asJava
 We show how to convert vavr collections to java collections.
 
