@@ -23,8 +23,8 @@ frameworks...).**
 # toJava*
 _Reference_: https://static.javadoc.io/io.vavr/vavr/0.9.0/io/vavr/Value.html
 
-Converts vavr collections to java collections by coping
-content, for example:
+Converts vavr collections to java collections by copying
+the content, for example:
 ```
 java.util.List<T> toJavaList() {
         return ValueModule.toJavaCollection(this, ArrayList::new, 10);
@@ -45,7 +45,7 @@ static <T, R extends java.util.Collection<T>> R toJavaCollection(
     return container;
 }
 ```
-
+methods summary:
 * `Object[] toJavaArray()`,
 * `T[] toJavaArray(Class<T> componentType)`,
 * `<C extends Collection<T>> C toJavaCollection(Function<Integer,C> factory)`,
@@ -76,5 +76,6 @@ method arguments. Java does handle this case inconsistently.
 
 * `List<T>	asJava()`
 * `List<T>	asJava(Consumer<? super List<T>> action)`
+Note that we have also mutable equivalents:
 * `List<T>	asJavaMutable()`
 * `List<T>	asJavaMutable(Consumer<? super List<T>> action)`
