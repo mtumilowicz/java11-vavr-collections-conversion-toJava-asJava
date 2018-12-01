@@ -17,7 +17,9 @@ The operations on a view have the same performance
 characteristics than the underlying persistent Vavr 
 collection whereas the performance characteristics of a 
 converted collection are those of the Java standard collections.
-    
+
+**Motivation: we often have to use java collections (in 
+frameworks...).**
 # toJava*
 _Reference_: https://static.javadoc.io/io.vavr/vavr/0.9.0/io/vavr/Value.html
 
