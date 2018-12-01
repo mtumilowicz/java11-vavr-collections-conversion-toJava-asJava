@@ -7,6 +7,16 @@ In vavr, we have two approaches to converting vavr collections
 to java collections:
 * `toJava*()`, where `*` could be: `List`, `Array`, `Set`...
 * `asJava()`
+
+The main difference between `asJava()` and `toJava*()` is that
+a view from `asJava()` is created in `O(1)` (constant time) 
+whereas conversion (`toJava*()`) takes `O(n)` (linear time), 
+with n = collection size.
+
+The operations on a view have the same performance 
+characteristics than the underlying persistent Vavr 
+collection whereas the performance characteristics of a 
+converted collection are those of the Java standard collections.
     
 # toJava*
 _Reference_: https://static.javadoc.io/io.vavr/vavr/0.9.0/io/vavr/Value.html
@@ -54,12 +64,13 @@ static <T, R extends java.util.Collection<T>> R toJavaCollection(
 # asJava()
 _Reference_: https://static.javadoc.io/io.vavr/vavr/0.9.2/io/vavr/collection/Seq.html
 
-Creates an immutable List view on top of this Seq, i.e. calling mutators will result in UnsupportedOperationException at runtime.
-The difference to conversion methods toJava*() is that
+Creates an **immutable `List`** view on top of this `Seq`, 
+i.e. calling mutators will result in 
+`UnsupportedOperationException` at runtime.
 
-A view is created in O(1) (constant time) whereas conversion takes O(n) (linear time), with n = collection size.
-The operations on a view have the same performance characteristics than the underlying persistent Vavr collection whereas the performance characteristics of a converted collection are those of the Java standard collections.
-Please note that our immutable java.util.List view throws UnsupportedOperationException before checking method arguments. Java does handle this case inconsistently.
+Please note that our immutable `java.util.List` view 
+throws `UnsupportedOperationException` before checking 
+method arguments. Java does handle this case inconsistently.
 
 * `List<T>	asJava()`
 * `List<T>	asJava(Consumer<? super List<T>> action)`
